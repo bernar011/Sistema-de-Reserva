@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Clientes</title>
+</head>
+<body>
+    <h1>Clientes</h1>
+    <h3 th:text = "${mensagem}"></h3>
+
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Contato</th>
+            <th>Data de Nascimento</th>
+        </tr>
+
+        <tr th:each="c : ${lista}">
+            <td th:text="${c.nome}"></td>
+            <td th:text="${c.contato}"></td>
+            <td th:text="${c.dataNascimento}"></td>
+        </tr>
+    </table>
+    <h2>Novo Cliente</h2>
+    <form action="/clientes" method="post">
+        <input type="text" name="nome" placeholder="Nome">
+        <input type="text" name="contato" placeholder="Contato">
+        <input type="date" name="dataNascimento" placeholder="Data de Nascimento">
+        <button type="submit">Adicionar</button>
+    </form>
+
+</body>
+</html>
