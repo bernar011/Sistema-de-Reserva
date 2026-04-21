@@ -32,6 +32,9 @@ button {
     margin-top: 10px;
     margin-right: 10px;
 }
+.destacado{
+    background-color: #fff2cc;
+}
 
 .coluna-nome{
     font-weight: bold;

@@ -1,9 +1,14 @@
 function marcarCliente(){
-    let nomes = document.querySelectorAll(".coluna-nome")
+   /* let nomes = document.querySelectorAll(".coluna-nome")
 
     nomes.forEach(function (td){
-        td.style.backgroundColor="#ffe599"
-    })
+        td.style.backgroundColor="#ffe599";
+    })*/
+
+    const nomes = document.querySelectorAll('.coluna-nome');
+    for(let i = 0; i < nomes.length; i++){
+        nomes[i].classList.toggle('destacado');
+    }
 }
 
 function toggleTabela(){
