@@ -22,3 +22,8 @@ th, td {
     border: 1px solid #999;
     padding: 10px;
 }
+
+.coluna-nome{
+    font-weight: bold;
+    color: #123f5c;
+}

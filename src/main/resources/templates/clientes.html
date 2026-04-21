@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Clientes</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
     <h1>Clientes</h1>
@@ -16,7 +17,7 @@
         </tr>
 
         <tr th:each="c : ${lista}">
-            <td th:text="${c.nome}"></td>
+            <td class="coluna-nome" th:text="${c.nome}"></td>
             <td th:text="${c.contato}"></td>
             <td th:text="${c.dataNascimento}"></td>
         </tr>
@@ -28,6 +29,6 @@
         <input type="date" name="dataNascimento" placeholder="Data de Nascimento">
         <button type="submit">Adicionar</button>
     </form>
-
+    <script th:src="@{/js/script.js}"></script>
 </body>
 </html>
