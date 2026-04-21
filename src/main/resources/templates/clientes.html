@@ -9,7 +9,7 @@
     <h1>Clientes</h1>
     <h3 th:text = "${mensagem}"></h3>
 
-    <table>
+    <table id="tabelaClientes">
         <tr>
             <th>Nome</th>
             <th>Contato</th>
@@ -22,6 +22,8 @@
             <td class="coluna-dataNascimento"  th:text="${c.dataNascimento}"></td>
         </tr>
     </table>
+    <button class="botao" onclick="marcarCliente()">Marcar clientes</button>
+    <button class="botao" onclick="toggleTabela">Mostrar/Esconder Tabela</button>
     <h2>Novo Cliente</h2>
     <form action="/clientes" method="post">
         <input type="text" name="nome" placeholder="Nome">
