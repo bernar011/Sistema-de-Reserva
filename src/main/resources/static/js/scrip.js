@@ -5,3 +5,12 @@ function marcarCliente(){
         td.style.backgroundColor="#ffe599"
     })
 }
+
+function toggleTabela(){
+    let tabela = document.getElementById("tabelaClientes");
+    if(tabela.style.display === "none"){
+        tabela.style.display = "table";
+    } else {
+        tabela.style.display = "none";
+    }
+}
