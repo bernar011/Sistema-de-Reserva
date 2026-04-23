@@ -2,13 +2,30 @@ package com.iefp.Restaurante___Sistema_Reserva_Mesas.model;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+// ---- LIVRARIAS ----
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+
 public class Cliente {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     // Variáveis
+    private Long id;
     private String nome;
     private String contato;
     private LocalDate dataNascimento;
+}
 
+    /*
     // Construtor
     public Cliente(String nome, String contato, LocalDate dataNascimento) {
         this.nome = nome;
@@ -28,8 +45,7 @@ public class Cliente {
     public LocalDate getDataNascimento() {
         return dataNascimento;
     }
-}
-/*
+
 Cliente - idCliente, nome, contacto
 Reserva - idReserva, data, hora, numPessoas, estado
 Mesa - idMesa, numeroMesa, capacidade, situacao
