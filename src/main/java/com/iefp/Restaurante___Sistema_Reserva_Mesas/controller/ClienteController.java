@@ -1,6 +1,7 @@
 package com.iefp.Restaurante___Sistema_Reserva_Mesas.controller;
 
 import com.iefp.Restaurante___Sistema_Reserva_Mesas.model.Cliente;
+import com.iefp.Restaurante___Sistema_Reserva_Mesas.repository.ClienteRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,13 +15,18 @@ import java.util.List;
 @Controller
 public class ClienteController {
 
-    private List<Cliente> clientes = new ArrayList<>();
+//    private List<Cliente> clientes = new ArrayList<>();
+    private final ClienteRepository clienteRepository;
+
+    public ClienteController(ClienteRepository clienteRepository) {
+        this.clienteRepository = clienteRepository;
+    }
 
     // Metodo
     @GetMapping("/clientes")
     public String listarClientes(Model model) {
         model.addAttribute("mensagem", "Lista de Clientes");
-        model.addAttribute("lista", clientes);
+        model.addAttribute("lista", clienteRepository.findAll());
         return "clientes";
     }
 
@@ -28,7 +34,7 @@ public class ClienteController {
     public String adicionarClientes(@RequestParam String nome,
                                     @RequestParam String contato,
                                     @RequestParam LocalDate dataNascimento) {
-        clientes.add(new Cliente(nome, contato, dataNascimento));
+        clienteRepository.save(new Cliente(null, nome, contato, dataNascimento));
         return "redirect:/clientes";
     }
 }
