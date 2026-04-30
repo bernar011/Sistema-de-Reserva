@@ -1,7 +1,7 @@
-package com.iefp.Restaurante___Sistema_Reserva_Mesas.controller;
+package com.iefp.Restaurante.controller;
 
-import com.iefp.Restaurante___Sistema_Reserva_Mesas.model.Cliente;
-import com.iefp.Restaurante___Sistema_Reserva_Mesas.repository.ClienteRepository;
+import com.iefp.Restaurante.model.Cliente;
+import com.iefp.Restaurante.repository.service.ClienteService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,32 +9,31 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 public class ClienteController {
 
-//    private List<Cliente> clientes = new ArrayList<>();
-    private final ClienteRepository clienteRepository;
+private final ClienteService clienteService;
 
-    public ClienteController(ClienteRepository clienteRepository) {
-        this.clienteRepository = clienteRepository;
+    public ClienteController(ClienteService clienteService) {
+        this.clienteService = clienteService;
     }
 
     // Metodo
     @GetMapping("/clientes")
     public String listarClientes(Model model) {
         model.addAttribute("mensagem", "Lista de Clientes");
-        model.addAttribute("lista", clienteRepository.findAll());
-        return "clientes";
+        model.addAttribute("lista", clienteService.listarTodos());
+        return "cliente";
     }
 
     @PostMapping("/clientes")
     public String adicionarClientes(@RequestParam String nome,
                                     @RequestParam String contato,
+                                    @RequestParam String email,
                                     @RequestParam LocalDate dataNascimento) {
-        clienteRepository.save(new Cliente(null, nome, contato, dataNascimento));
+        Cliente cliente = new Cliente(null, nome, contato, email, dataNascimento, null);
+        clienteService.guardar(cliente);
         return "redirect:/clientes";
     }
 }

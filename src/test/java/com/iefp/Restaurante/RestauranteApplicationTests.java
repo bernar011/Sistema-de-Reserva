@@ -1,10 +1,10 @@
-package com.iefp.Restaurante___Sistema_Reserva_Mesas;
+package com.iefp.Restaurante;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class RestauranteSistemaReservaMesasApplicationTests {
+class RestauranteApplicationTests {
 
 	@Test
 	void contextLoads() {

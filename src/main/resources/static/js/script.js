@@ -19,3 +19,4 @@ function toggleTabela(){
         tabela.style.display = "none";
     }
 }
+

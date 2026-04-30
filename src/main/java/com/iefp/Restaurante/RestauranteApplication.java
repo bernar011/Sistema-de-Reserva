@@ -1,13 +1,13 @@
-package com.iefp.Restaurante___Sistema_Reserva_Mesas;
+package com.iefp.Restaurante;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RestauranteSistemaReservaMesasApplication {
+public class RestauranteApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RestauranteSistemaReservaMesasApplication.class, args);
+		SpringApplication.run(RestauranteApplication.class, args);
 	}
 
 }
